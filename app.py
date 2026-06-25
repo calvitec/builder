@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'cmk-construction-secret-2026'
 
 # ============================================
-# SERVICES
+# SERVICES - UPDATED COLORS
 # ============================================
 SERVICES = [
     {
@@ -35,14 +35,6 @@ SERVICES = [
         'features': ['Room Additions', 'Second Stories', 'Garage Conversions', 'Sunrooms']
     },
     {
-        'id': 'roofing',
-        'name': 'Roofing Services',
-        'icon': 'fa-helmet-safety',
-        'description': 'Professional roofing installation and repair using high-quality materials.',
-        'image': 'https://images.unsplash.com/photo-1588359348347-9bc5c4b5f3c5?w=600&h=400&fit=crop',
-        'features': ['Asphalt Shingles', 'Metal Roofing', 'Tile Roofing', 'Roof Repairs']
-    },
-    {
         'id': 'flooring',
         'name': 'Flooring Installation',
         'icon': 'fa-layer-group',
@@ -57,11 +49,19 @@ SERVICES = [
         'description': 'Professional painting services to refresh your home\'s interior and exterior.',
         'image': 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=400&fit=crop',
         'features': ['Interior Painting', 'Exterior Painting', 'Cabinet Refinishing', 'Wallpaper Removal']
+    },
+    {
+        'id': 'deck_building',
+        'name': 'Deck & Patio Building',
+        'icon': 'fa-tree',
+        'description': 'Create stunning outdoor living spaces with custom decks, patios, and outdoor kitchens.',
+        'image': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
+        'features': ['Custom Decks', 'Patio Design', 'Outdoor Kitchens', 'Fire Pits']
     }
 ]
 
 # ============================================
-# PROJECTS
+# PROJECTS - ROOFING REMOVED
 # ============================================
 PROJECTS = [
     {
@@ -80,14 +80,14 @@ PROJECTS = [
     },
     {
         'id': 'project3',
-        'title': 'Two-Story Addition',
+        'title': 'Two-Story Home Addition',
         'category': 'Addition',
         'image': 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=400&fit=crop',
         'description': 'Full second-story addition with master suite and home office.'
     },
     {
         'id': 'project4',
-        'title': 'Outdoor Living Space',
+        'title': 'Outdoor Living & Deck',
         'category': 'Outdoor',
         'image': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
         'description': 'Custom deck and outdoor kitchen for entertaining.'
@@ -101,10 +101,10 @@ PROJECTS = [
     },
     {
         'id': 'project6',
-        'title': 'Roof Replacement',
-        'category': 'Roofing',
-        'image': 'https://images.unsplash.com/photo-1588359348347-9bc5c4b5f3c5?w=600&h=400&fit=crop',
-        'description': 'Full roof replacement with premium architectural shingles.'
+        'title': 'Hardwood Flooring Installation',
+        'category': 'Flooring',
+        'image': 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&h=400&fit=crop',
+        'description': 'Premium hardwood flooring installation throughout the home.'
     }
 ]
 
@@ -155,8 +155,6 @@ def contact():
         phone = request.form.get('phone', '')
         message = request.form.get('message', '')
         
-        # Here you would send email or save to database
-        # For now, just show a success message
         return render_template('contact.html', 
             success=True, 
             name=name,
