@@ -147,13 +147,6 @@ def index():
         testimonials=TESTIMONIALS
     )
 
-@app.route('/service/<service_id>')
-def service_detail(service_id):
-    service = next((s for s in SERVICES if s['id'] == service_id), None)
-    if not service:
-        return redirect(url_for('index'))
-    return render_template('service.html', service=service)
-
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -167,21 +160,10 @@ def contact():
         return render_template('contact.html', 
             success=True, 
             name=name,
-            message='Thank you for contacting us! We will respond within 24 hours.'
+            message='Thank you for contacting CMK Construction! We will respond within 24 hours.'
         )
     
     return render_template('contact.html', success=False)
-
-@app.route('/projects')
-def projects():
-    return render_template('projects.html', projects=PROJECTS)
-
-@app.route('/project/<project_id>')
-def project_detail(project_id):
-    project = next((p for p in PROJECTS if p['id'] == project_id), None)
-    if not project:
-        return redirect(url_for('projects'))
-    return render_template('project.html', project=project)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
