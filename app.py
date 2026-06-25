@@ -7,22 +7,22 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'cmk-construction-secret-2026'
 
 # ============================================
-# SERVICES - UPDATED COLORS
+# SERVICES
 # ============================================
 SERVICES = [
     {
         'id': 'kitchen_remodeling',
         'name': 'Kitchen Remodeling',
         'icon': 'fa-kitchen-set',
-        'description': 'Transform your kitchen into a beautiful, functional space with custom cabinetry, countertops, and modern appliances.',
+        'description': 'Transform your kitchen into a beautiful, functional space with custom cabinetry, premium countertops, and modern appliances.',
         'image': 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop',
-        'features': ['Custom Cabinetry', 'Granite Countertops', 'Modern Appliances', 'Lighting Design']
+        'features': ['Custom Cabinetry', 'Granite Countertops', 'Smart Appliances', 'Lighting Design']
     },
     {
         'id': 'bathroom_remodeling',
         'name': 'Bathroom Remodeling',
         'icon': 'fa-bath',
-        'description': 'Create a spa-like retreat with luxurious fixtures, custom tile work, and elegant vanities.',
+        'description': 'Create a spa-like retreat with luxurious fixtures, custom tile work, elegant vanities, and premium finishes.',
         'image': 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop',
         'features': ['Custom Tile Work', 'Luxury Fixtures', 'Walk-in Showers', 'Heated Floors']
     },
@@ -54,14 +54,14 @@ SERVICES = [
         'id': 'deck_building',
         'name': 'Deck & Patio Building',
         'icon': 'fa-tree',
-        'description': 'Create stunning outdoor living spaces with custom decks, patios, and outdoor kitchens.',
+        'description': 'Create stunning outdoor living spaces with custom decks, patios, outdoor kitchens, and fire pits.',
         'image': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
         'features': ['Custom Decks', 'Patio Design', 'Outdoor Kitchens', 'Fire Pits']
     }
 ]
 
 # ============================================
-# PROJECTS - ROOFING REMOVED
+# PROJECTS
 # ============================================
 PROJECTS = [
     {
