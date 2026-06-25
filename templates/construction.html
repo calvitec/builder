@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMK Construction — Quality Home Remodeling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(239, 68, 68, 0.08) 100%);
+            pointer-events: none;
+        }
+        
+        .glass-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.35);
+        }
+        
+        .btn-outline-red {
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-outline-red:hover {
+            background: #dc2626;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+        .project-card .project-image {
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.08);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 0;
+            height: 2.5px;
+            background: #dc2626;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link:hover { color: white; }
+        .nav-link:hover::after { width: 80%; }
+        .nav-link.active { color: white; }
+        .nav-link.active::after { width: 80%; }
+        
+        .section-title { font-family: 'Playfair Display', serif; }
+        
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        
+        .fade-slide { opacity: 0; transform: translateY(30px); animation: fadeSlide 0.8s ease-out forwards; }
+        @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 4px; }
+        
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .contact-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .contact-input::placeholder { color: rgba(255,255,255,0.3); }
+        .contact-input:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+        }
+        textarea.contact-input { resize: vertical; min-height: 120px; }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR ===== -->
+    <div class="bg-gradient-to-r from-red-700 to-red-800 text-white text-xs py-1.5 text-center">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-4">
+            <span><i class="fas fa-phone mr-1"></i> (941) 555-0123</span>
+            <span><i class="fas fa-envelope mr-1"></i> info@cmkconstruction.com</span>
+            <span><i class="fas fa-map-marker-alt mr-1"></i> Sarasota, FL</span>
+            <span class="hidden md:inline"><i class="far fa-clock mr-1"></i> Mon-Fri 7:00am - 6:00pm</span>
+        </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="fixed top-8 left-0 right-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold tracking-tight text-white">CMK <span class="text-red-500">Construction</span></div>
+                        <div class="text-[10px] text-gray-400 tracking-[0.2em] uppercase font-medium">Quality Built Homes</div>
+                    </div>
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:+19415550123" class="hidden md:flex items-center gap-2 text-white bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-full transition text-sm font-semibold">
+                        <i class="fas fa-phone"></i> (941) 555-0123
+                    </a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="hidden md:block px-6 py-2.5 rounded-full btn-primary text-white font-semibold text-sm shadow-md hover:shadow-xl">
+                        Free Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="gradient-hero min-h-[90vh] flex items-center pt-28 relative">
+        <div class="hero-blob w-[600px] h-[600px] bg-red-600 top-[-200px] right-[-100px]"></div>
+        <div class="hero-blob w-[400px] h-[400px] bg-blue-600 bottom-[-100px] left-[-100px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-slide">
+                    <div class="inline-flex items-center gap-2 bg-red-600/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-red-400 font-semibold mb-6 border border-red-600/20">
+                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span> 20+ Years of Excellence
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-[1.05]">
+                        Quality <span class="text-red-500">Construction</span><br>
+                        You Can Trust
+                    </h1>
+                    <p class="text-gray-300 text-lg mt-4 max-w-md leading-relaxed">
+                        From kitchen remodels to full home renovations, we deliver exceptional craftsmanship and attention to detail on every project.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-full btn-primary text-white font-bold shadow-lg flex items-center gap-2">
+                            <i class="fas fa-calculator"></i> Get Free Quote
+                        </button>
+                        <a href="#projects" class="px-8 py-4 rounded-full btn-outline-red font-bold flex items-center gap-2">
+                            <i class="fas fa-images"></i> View Our Work
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6 mt-8 text-gray-400 text-sm">
+                        <div class="flex items-center gap-2"><span class="text-2xl">🏆</span> 500+ Projects Completed</div>
+                        <div class="flex items-center gap-2"><span class="text-2xl">⭐</span> 4.9 Average Rating</div>
+                        <div class="flex items-center gap-2"><span class="text-2xl">🔒</span> Licensed & Insured</div>
+                    </div>
+                </div>
+                <div class="relative animate-float hidden lg:block">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                            <div class="w-full h-48 rounded-xl overflow-hidden bg-gray-800">
+                                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&h=400&fit=crop" alt="Kitchen" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-white font-semibold mt-3">Kitchen Remodeling</p>
+                            <p class="text-gray-400 text-sm">Custom cabinetry & design</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mt-8">
+                            <div class="w-full h-48 rounded-xl overflow-hidden bg-gray-800">
+                                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop" alt="Bathroom" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-white font-semibold mt-3">Bathroom Remodeling</p>
+                            <p class="text-gray-400 text-sm">Spa-inspired designs</p>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+                        <div class="flex items-center gap-2">
+                            <span class="text-yellow-400 text-sm">★★★★★</span>
+                            <span class="text-white font-bold text-sm">4.9</span>
+                            <span class="text-gray-400 text-xs">(200+ reviews)</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">"Best contractors we've ever worked with!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="py-20 px-4 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">What We Do</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">Our Services</h2>
+                <p class="text-gray-400 mt-3 max-w-md mx-auto">Comprehensive construction and remodeling services for your home</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for service in services %}
+                <div class="service-card bg-gray-800/50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-red-600/20 flex items-center justify-center text-red-500 text-3xl mb-4">
+                        <i class="fas {{ service.icon }}"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl">{{ service.name }}</h3>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">{{ service.description[:100] }}...</p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        {% for feature in service.features[:3] %}
+                        <span class="text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full">{{ feature }}</span>
+                        {% endfor %}
+                    </div>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="mt-6 px-6 py-2.5 rounded-full btn-primary text-white font-semibold text-sm transition">
+                        Get Quote
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects" class="py-20 px-4 bg-gray-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Our Portfolio</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">Featured Projects</h2>
+                <p class="text-gray-400 mt-3 max-w-md mx-auto">See the quality and craftsmanship we bring to every project</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for project in projects %}
+                <div class="project-card bg-gray-800 rounded-2xl overflow-hidden">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                            {{ project.category }}
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-white font-bold text-lg">{{ project.title }}</h3>
+                        <p class="text-gray-400 text-sm mt-1">{{ project.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="py-16 px-4 bg-gradient-to-r from-red-700 to-red-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number text-4xl font-bold text-white">500+</div>
+                    <p class="text-red-200 text-sm mt-1">Projects Completed</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-white">4.9</div>
+                    <p class="text-red-200 text-sm mt-1">Average Rating</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-white">200+</div>
+                    <p class="text-red-200 text-sm mt-1">Happy Clients</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-white">20+</div>
+                    <p class="text-red-200 text-sm mt-1">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="py-20 px-4 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Testimonials</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">What Our Clients Say</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                {% for testimonial in testimonials %}
+                <div class="testimonial-card bg-gray-800 rounded-2xl p-8">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        {% for i in range(testimonial.rating) %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                    </div>
+                    <p class="text-gray-300 italic leading-relaxed">"{{ testimonial.text }}"</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                            {{ testimonial.name[0] }}{{ testimonial.name.split(' ')[1][0] if testimonial.name.split(' ')|length > 1 else '' }}
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">{{ testimonial.name }}</p>
+                            <p class="text-gray-400 text-xs">{{ testimonial.location }} • {{ testimonial.project }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / QUOTE SECTION ===== -->
+    <section id="contact" class="py-20 px-4 bg-gray-950">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Get Started</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">Request a Free Quote</h2>
+                <p class="text-gray-400 mt-3">Tell us about your project and we'll get back to you within 24 hours</p>
+            </div>
+            <div class="glass-card rounded-2xl p-8">
+                <form method="POST" action="/contact" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-gray-300 text-sm block mb-1">Full Name</label>
+                            <input type="text" name="name" placeholder="John Doe" class="contact-input" required>
+                        </div>
+                        <div>
+                            <label class="text-gray-300 text-sm block mb-1">Email Address</label>
+                            <input type="email" name="email" placeholder="john@example.com" class="contact-input" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-gray-300 text-sm block mb-1">Phone Number</label>
+                        <input type="tel" name="phone" placeholder="(941) 555-0123" class="contact-input">
+                    </div>
+                    <div>
+                        <label class="text-gray-300 text-sm block mb-1">Project Description</label>
+                        <textarea name="message" placeholder="Tell us about your project..." class="contact-input"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl btn-primary text-white font-bold text-lg transition">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-950 text-white/60 pt-16 pb-8 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">CMK <span class="text-red-500">Construction</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400 max-w-xs">Quality construction and remodeling services for residential and commercial properties.</p>
+                    <div class="flex gap-3 mt-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Kitchen Remodeling</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Bathroom Remodeling</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home Additions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Roofing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Flooring</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Painting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-red-500 mt-1"></i> Sarasota, Florida</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-phone text-red-500 mt-1"></i> (941) 555-0123</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-envelope text-red-500 mt-1"></i> info@cmkconstruction.com</li>
+                        <li class="flex items-start gap-3"><i class="far fa-clock text-red-500 mt-1"></i> Mon-Fri: 7:00am - 6:00pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs text-gray-500">
+                <p>© 2026 CMK Construction. Built with ❤️ by <span class="text-white/60">Calvin</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.style.background = 'rgba(17, 24, 39, 0.95)';
+                navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.style.background = 'rgba(255,255,255,0.06)';
+                navbar.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
