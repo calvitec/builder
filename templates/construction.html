@@ -10,8 +10,9 @@
     <style>
         * { font-family: 'Inter', sans-serif; }
         
+        /* ===== NEW COLOR SCHEME - Blue/Navy ===== */
         .gradient-hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+            background: linear-gradient(135deg, #0c0c1d 0%, #1a1a3e 40%, #1a237e 100%);
             position: relative;
             overflow: hidden;
         }
@@ -22,7 +23,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(135deg, transparent 40%, rgba(239, 68, 68, 0.08) 100%);
+            background: linear-gradient(135deg, transparent 40%, rgba(66, 133, 244, 0.08) 100%);
             pointer-events: none;
         }
         
@@ -33,27 +34,27 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.35);
+            box-shadow: 0 20px 50px rgba(26, 35, 126, 0.4);
         }
         
-        .btn-outline-red {
-            border: 2px solid #dc2626;
-            color: #dc2626;
+        .btn-outline-blue {
+            border: 2px solid #3f51b5;
+            color: #3f51b5;
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        .btn-outline-red:hover {
-            background: #dc2626;
+        .btn-outline-blue:hover {
+            background: #3f51b5;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+            box-shadow: 0 10px 30px rgba(63, 81, 181, 0.2);
         }
         
         .service-card {
@@ -64,7 +65,7 @@
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 70px rgba(0,0,0,0.3);
-            border-color: rgba(220, 38, 38, 0.3);
+            border-color: rgba(63, 81, 181, 0.3);
         }
         
         .project-card {
@@ -96,15 +97,13 @@
             left: 50%;
             width: 0;
             height: 2.5px;
-            background: #dc2626;
+            background: #3f51b5;
             transition: all 0.3s ease;
             transform: translateX(-50%);
             border-radius: 2px;
         }
         .nav-link:hover { color: white; }
         .nav-link:hover::after { width: 80%; }
-        .nav-link.active { color: white; }
-        .nav-link.active::after { width: 80%; }
         
         .section-title { font-family: 'Playfair Display', serif; }
         
@@ -124,8 +123,8 @@
         }
         
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a1a2e; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #0c0c1d; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1a237e, #283593); border-radius: 4px; }
         
         .hero-blob {
             position: absolute;
@@ -135,9 +134,7 @@
             pointer-events: none;
         }
         
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-        }
+        .stat-number { font-family: 'Playfair Display', serif; }
         
         .contact-input {
             background: rgba(255,255,255,0.05);
@@ -151,15 +148,33 @@
         .contact-input::placeholder { color: rgba(255,255,255,0.3); }
         .contact-input:focus {
             outline: none;
-            border-color: #dc2626;
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+            border-color: #3f51b5;
+            box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.1);
         }
         textarea.contact-input { resize: vertical; min-height: 120px; }
+        
+        .service-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gold-accent {
+            color: #f6c445;
+        }
     </style>
 </head>
 <body>
     <!-- ===== TOP BAR ===== -->
-    <div class="bg-gradient-to-r from-red-700 to-red-800 text-white text-xs py-1.5 text-center">
+    <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white text-xs py-1.5 text-center">
         <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-4">
             <span><i class="fas fa-phone mr-1"></i> (941) 555-0123</span>
             <span><i class="fas fa-envelope mr-1"></i> info@cmkconstruction.com</span>
@@ -173,11 +188,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="/" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
                         <i class="fas fa-hard-hat"></i>
                     </div>
                     <div>
-                        <div class="text-2xl font-bold tracking-tight text-white">CMK <span class="text-red-500">Construction</span></div>
+                        <div class="text-2xl font-bold tracking-tight text-white">CMK <span class="text-blue-400">Construction</span></div>
                         <div class="text-[10px] text-gray-400 tracking-[0.2em] uppercase font-medium">Quality Built Homes</div>
                     </div>
                 </a>
@@ -188,7 +203,7 @@
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="tel:+19415550123" class="hidden md:flex items-center gap-2 text-white bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-full transition text-sm font-semibold">
+                    <a href="tel:+19415550123" class="hidden md:flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full transition text-sm font-semibold">
                         <i class="fas fa-phone"></i> (941) 555-0123
                     </a>
                     <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="hidden md:block px-6 py-2.5 rounded-full btn-primary text-white font-semibold text-sm shadow-md hover:shadow-xl">
@@ -201,16 +216,16 @@
 
     <!-- ===== HERO SECTION ===== -->
     <section class="gradient-hero min-h-[90vh] flex items-center pt-28 relative">
-        <div class="hero-blob w-[600px] h-[600px] bg-red-600 top-[-200px] right-[-100px]"></div>
-        <div class="hero-blob w-[400px] h-[400px] bg-blue-600 bottom-[-100px] left-[-100px]"></div>
+        <div class="hero-blob w-[600px] h-[600px] bg-blue-600 top-[-200px] right-[-100px]"></div>
+        <div class="hero-blob w-[400px] h-[400px] bg-purple-600 bottom-[-100px] left-[-100px]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="fade-slide">
-                    <div class="inline-flex items-center gap-2 bg-red-600/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-red-400 font-semibold mb-6 border border-red-600/20">
-                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span> 20+ Years of Excellence
+                    <div class="inline-flex items-center gap-2 bg-blue-600/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-blue-400 font-semibold mb-6 border border-blue-600/20">
+                        <span class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></span> 20+ Years of Excellence
                     </div>
                     <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-[1.05]">
-                        Quality <span class="text-red-500">Construction</span><br>
+                        Quality <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Construction</span><br>
                         You Can Trust
                     </h1>
                     <p class="text-gray-300 text-lg mt-4 max-w-md leading-relaxed">
@@ -220,7 +235,7 @@
                         <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-full btn-primary text-white font-bold shadow-lg flex items-center gap-2">
                             <i class="fas fa-calculator"></i> Get Free Quote
                         </button>
-                        <a href="#projects" class="px-8 py-4 rounded-full btn-outline-red font-bold flex items-center gap-2">
+                        <a href="#projects" class="px-8 py-4 rounded-full btn-outline-blue font-bold flex items-center gap-2">
                             <i class="fas fa-images"></i> View Our Work
                         </a>
                     </div>
@@ -264,14 +279,14 @@
     <section id="services" class="py-20 px-4 bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
-                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">What We Do</span>
+                <span class="text-blue-400 text-sm font-semibold tracking-[0.2em] uppercase">What We Do</span>
                 <h2 class="section-title text-5xl font-bold text-white mt-2">Our Services</h2>
                 <p class="text-gray-400 mt-3 max-w-md mx-auto">Comprehensive construction and remodeling services for your home</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for service in services %}
                 <div class="service-card bg-gray-800/50 rounded-2xl p-8 text-center">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-red-600/20 flex items-center justify-center text-red-500 text-3xl mb-4">
+                    <div class="service-icon w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-600/20 to-indigo-600/20 flex items-center justify-center text-blue-400 text-3xl mb-4">
                         <i class="fas {{ service.icon }}"></i>
                     </div>
                     <h3 class="text-white font-bold text-xl">{{ service.name }}</h3>
@@ -294,7 +309,7 @@
     <section id="projects" class="py-20 px-4 bg-gray-950">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
-                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Our Portfolio</span>
+                <span class="text-blue-400 text-sm font-semibold tracking-[0.2em] uppercase">Our Portfolio</span>
                 <h2 class="section-title text-5xl font-bold text-white mt-2">Featured Projects</h2>
                 <p class="text-gray-400 mt-3 max-w-md mx-auto">See the quality and craftsmanship we bring to every project</p>
             </div>
@@ -303,7 +318,7 @@
                 <div class="project-card bg-gray-800 rounded-2xl overflow-hidden">
                     <div class="relative h-56 overflow-hidden">
                         <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        <div class="absolute top-3 right-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                             {{ project.category }}
                         </div>
                     </div>
@@ -318,24 +333,24 @@
     </section>
 
     <!-- ===== STATS SECTION ===== -->
-    <section class="py-16 px-4 bg-gradient-to-r from-red-700 to-red-800">
+    <section class="py-16 px-4 bg-gradient-to-r from-blue-900 to-indigo-900">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
                     <div class="stat-number text-4xl font-bold text-white">500+</div>
-                    <p class="text-red-200 text-sm mt-1">Projects Completed</p>
+                    <p class="text-blue-200 text-sm mt-1">Projects Completed</p>
                 </div>
                 <div>
                     <div class="stat-number text-4xl font-bold text-white">4.9</div>
-                    <p class="text-red-200 text-sm mt-1">Average Rating</p>
+                    <p class="text-blue-200 text-sm mt-1">Average Rating</p>
                 </div>
                 <div>
                     <div class="stat-number text-4xl font-bold text-white">200+</div>
-                    <p class="text-red-200 text-sm mt-1">Happy Clients</p>
+                    <p class="text-blue-200 text-sm mt-1">Happy Clients</p>
                 </div>
                 <div>
                     <div class="stat-number text-4xl font-bold text-white">20+</div>
-                    <p class="text-red-200 text-sm mt-1">Years Experience</p>
+                    <p class="text-blue-200 text-sm mt-1">Years Experience</p>
                 </div>
             </div>
         </div>
@@ -345,7 +360,7 @@
     <section id="testimonials" class="py-20 px-4 bg-gray-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
-                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Testimonials</span>
+                <span class="text-blue-400 text-sm font-semibold tracking-[0.2em] uppercase">Testimonials</span>
                 <h2 class="section-title text-5xl font-bold text-white mt-2">What Our Clients Say</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
@@ -358,7 +373,7 @@
                     </div>
                     <p class="text-gray-300 italic leading-relaxed">"{{ testimonial.text }}"</p>
                     <div class="mt-4 flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                             {{ testimonial.name[0] }}{{ testimonial.name.split(' ')[1][0] if testimonial.name.split(' ')|length > 1 else '' }}
                         </div>
                         <div>
@@ -376,7 +391,7 @@
     <section id="contact" class="py-20 px-4 bg-gray-950">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-14">
-                <span class="text-red-500 text-sm font-semibold tracking-[0.2em] uppercase">Get Started</span>
+                <span class="text-blue-400 text-sm font-semibold tracking-[0.2em] uppercase">Get Started</span>
                 <h2 class="section-title text-5xl font-bold text-white mt-2">Request a Free Quote</h2>
                 <p class="text-gray-400 mt-3">Tell us about your project and we'll get back to you within 24 hours</p>
             </div>
@@ -414,17 +429,17 @@
             <div class="grid md:grid-cols-4 gap-12">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0">
                             <i class="fas fa-hard-hat"></i>
                         </div>
-                        <span class="text-2xl font-bold text-white">CMK <span class="text-red-500">Construction</span></span>
+                        <span class="text-2xl font-bold text-white">CMK <span class="text-blue-400">Construction</span></span>
                     </div>
                     <p class="text-sm leading-relaxed text-gray-400 max-w-xs">Quality construction and remodeling services for residential and commercial properties.</p>
                     <div class="flex gap-3 mt-6">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div>
@@ -433,9 +448,9 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Kitchen Remodeling</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Bathroom Remodeling</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Home Additions</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Roofing</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Flooring</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Painting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Deck & Patio</a></li>
                     </ul>
                 </div>
                 <div>
@@ -451,10 +466,10 @@
                 <div>
                     <h4 class="text-white font-semibold text-lg mb-4">Contact Info</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-red-500 mt-1"></i> Sarasota, Florida</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-phone text-red-500 mt-1"></i> (941) 555-0123</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-envelope text-red-500 mt-1"></i> info@cmkconstruction.com</li>
-                        <li class="flex items-start gap-3"><i class="far fa-clock text-red-500 mt-1"></i> Mon-Fri: 7:00am - 6:00pm</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-blue-400 mt-1"></i> Sarasota, Florida</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-phone text-blue-400 mt-1"></i> (941) 555-0123</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-envelope text-blue-400 mt-1"></i> info@cmkconstruction.com</li>
+                        <li class="flex items-start gap-3"><i class="far fa-clock text-blue-400 mt-1"></i> Mon-Fri: 7:00am - 6:00pm</li>
                     </ul>
                 </div>
             </div>
@@ -465,7 +480,6 @@
     </footer>
 
     <script>
-        // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -474,15 +488,12 @@
             });
         });
 
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('nav');
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
                 navbar.style.background = 'rgba(17, 24, 39, 0.95)';
                 navbar.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
             } else {
-                navbar.classList.remove('scrolled');
                 navbar.style.background = 'rgba(255,255,255,0.06)';
                 navbar.style.borderBottom = 'none';
             }
