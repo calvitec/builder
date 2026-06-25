@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - CMK Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+        .glass-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+        .btn-primary { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: scale(1.02); box-shadow: 0 10px 40px rgba(220,38,38,0.3); }
+        .section-title { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="glass-card rounded-2xl p-8 text-center">
+            <div class="w-24 h-24 mx-auto rounded-full bg-green-500/20 flex items-center justify-center mb-4">
+                <i class="fas fa-check text-5xl text-green-400"></i>
+            </div>
+            <h1 class="section-title text-3xl font-bold text-white">Thank You!</h1>
+            <p class="text-gray-300 mt-2">Your message has been sent successfully.</p>
+            <div class="bg-gray-800/50 rounded-xl p-4 mt-6">
+                <p class="text-gray-400 text-sm">We will respond within 24 hours</p>
+            </div>
+            <a href="/" class="mt-6 inline-block px-8 py-3 rounded-xl btn-primary text-white font-semibold transition">
+                <i class="fas fa-arrow-left mr-2"></i> Return to Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>
