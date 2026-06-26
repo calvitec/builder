@@ -1,1 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ace Construction — World-Class Craftsmanship</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        :root {
+            --slate: #1a2a3a;
+            --slate-light: #2c3e50;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --cream: #f8f5f0;
+            --dark: #1a1a2e;
+            --text-light: #6b7280;
+        }
+        
+        .gradient-hero {
+            background: linear-gradient(135deg, #0f1a24 0%, #1a2a3a 50%, #0f1a24 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, rgba(201, 168, 76, 0.05) 100%);
+            pointer-events: none;
+        }
+        
+        .glass-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(26, 42, 58, 0.4);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #c9a84c 0%, #b8953a 100%);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(201, 168, 76, 0.4);
+        }
+        
+        .btn-outline-gold {
+            border: 2px solid #c9a84c;
+            color: #c9a84c;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-outline-gold:hover {
+            background: #c9a84c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.2);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.04);
+            background: white;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(26, 42, 58, 0.1);
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+        
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: hidden;
+            background: white;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+        .project-card .project-image {
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.08);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 0;
+            height: 2.5px;
+            background: #c9a84c;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link:hover { color: white; }
+        .nav-link:hover::after { width: 80%; }
+        
+        .section-title { font-family: 'Playfair Display', serif; }
+        .gold-text { color: #c9a84c; }
+        .gold-bg { background: #c9a84c; }
+        
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        
+        .fade-slide { opacity: 0; transform: translateY(30px); animation: fadeSlide 0.8s ease-out forwards; }
+        @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f1a24; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #1a2a3a, #2c3e50); border-radius: 4px; }
+        
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .stat-number { font-family: 'Playfair Display', serif; }
+        
+        .contact-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .contact-input::placeholder { color: rgba(255,255,255,0.3); }
+        .contact-input:focus {
+            outline: none;
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.1);
+        }
+        textarea.contact-input { resize: vertical; min-height: 120px; }
+        
+        .service-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #c9a84c 0%, #e8d5a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .footer-link:hover {
+            color: #c9a84c;
+            transform: translateX(4px);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.4);
+        }
+        .social-icon:hover {
+            background: #c9a84c;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+        }
+        
+        .service-card-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 220px;
+        }
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-card-image img {
+            transform: scale(1.05);
+        }
+        .service-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px 20px;
+            background: linear-gradient(transparent, rgba(26, 42, 58, 0.9));
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== TOP BAR ===== -->
+    <div class="bg-[#0f1a24] text-white/70 text-xs py-1.5 text-center border-b border-[#1a2a3a]">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center items-center gap-6">
+            <span><i class="fas fa-phone text-[#c9a84c] mr-1"></i> +1 (727) 409-7244</span>
+            <span><i class="fas fa-envelope text-[#c9a84c] mr-1"></i> info@aceconstruction.com</span>
+            <span><i class="fas fa-map-marker-alt text-[#c9a84c] mr-1"></i> 5720 4th St N, St. Petersburg, FL 33703</span>
+            <span class="hidden md:inline"><i class="far fa-clock text-[#c9a84c] mr-1"></i> Mon-Fri 7:00am - 6:00pm</span>
+        </div>
+    </div>
 
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="fixed top-8 left-0 right-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a2a3a] to-[#2c3e50] flex items-center justify-center text-[#c9a84c] font-bold text-xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-[#c9a84c]/20">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold tracking-tight text-white">Ace<span class="text-[#c9a84c]">Construction</span></div>
+                        <div class="text-[10px] text-gray-400 tracking-[0.2em] uppercase font-medium">Built to Last</div>
+                    </div>
+                </a>
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:+17274097244" class="hidden md:flex items-center gap-2 text-white bg-[#1a2a3a] hover:bg-[#2c3e50] px-5 py-2.5 rounded-full transition text-sm font-semibold border border-[#c9a84c]/20">
+                        <i class="fas fa-phone text-[#c9a84c]"></i> (727) 409-7244
+                    </a>
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="hidden md:block px-6 py-2.5 rounded-full btn-gold text-white font-semibold text-sm shadow-md hover:shadow-xl">
+                        Free Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="gradient-hero min-h-[90vh] flex items-center pt-28 relative">
+        <div class="hero-blob w-[600px] h-[600px] bg-[#c9a84c] top-[-200px] right-[-100px]"></div>
+        <div class="hero-blob w-[400px] h-[400px] bg-[#1a2a3a] bottom-[-100px] left-[-100px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="fade-slide">
+                    <div class="inline-flex items-center gap-2 bg-[#c9a84c]/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm text-[#c9a84c] font-semibold mb-6 border border-[#c9a84c]/20">
+                        <span class="w-2.5 h-2.5 bg-[#c9a84c] rounded-full animate-pulse"></span> 20+ Years of Excellence
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-[1.05]">
+                        Welcome to <span class="text-[#c9a84c]">Ace Construction</span><br>
+                        Quality Built to Last
+                    </h1>
+                    <p class="text-gray-300 text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+                        From kitchen remodels to full home renovations, we deliver exceptional craftsmanship and attention to detail on every project.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-full btn-gold text-white font-bold shadow-lg flex items-center gap-2">
+                            <i class="fas fa-calculator"></i> Get Free Quote
+                        </button>
+                        <a href="#projects" class="px-8 py-4 rounded-full btn-outline-gold font-bold flex items-center gap-2">
+                            <i class="fas fa-images"></i> View Our Work
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap justify-center items-center gap-6 mt-8 text-gray-400 text-sm">
+                        <div class="flex items-center gap-2"><span class="text-2xl">🏆</span> 500+ Projects Completed</div>
+                        <div class="flex items-center gap-2"><span class="text-2xl">⭐</span> 4.9 Average Rating</div>
+                        <div class="flex items-center gap-2"><span class="text-2xl">🔒</span> Licensed & Insured</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services" class="py-20 px-4 bg-[#f8f5f0]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-[#1a2a3a] text-sm font-semibold tracking-[0.2em] uppercase">What We Do</span>
+                <h2 class="section-title text-5xl font-bold text-[#1a2a3a] mt-2">Our Services</h2>
+                <p class="text-gray-500 mt-3 max-w-md mx-auto">Comprehensive construction and remodeling services for your home</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop&crop=center" alt="Kitchen Remodeling">
+                        <div class="service-card-overlay">
+                            <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
+                                <i class="fas fa-kitchen-set"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-lg">Kitchen Remodeling</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-500 text-sm leading-relaxed">Transform your kitchen with custom cabinetry, quartz countertops, and premium appliances...</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Custom Layout</span>
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Premium Materials</span>
+                        </div>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="mt-4 px-6 py-2 rounded-full btn-primary text-white font-semibold text-sm transition w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&crop=center" alt="Bathroom Remodeling">
+                        <div class="service-card-overlay">
+                            <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
+                                <i class="fas fa-bath"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-lg">Bathroom Remodeling</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-500 text-sm leading-relaxed">Create a spa-like retreat with custom vanities, premium tile work, and luxury fixtures...</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Heated Floors</span>
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Rain Showers</span>
+                        </div>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="mt-4 px-6 py-2 rounded-full btn-primary text-white font-semibold text-sm transition w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop&crop=center" alt="Home Additions">
+                        <div class="service-card-overlay">
+                            <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
+                                <i class="fas fa-house-chimney"></i>
+                            </div>
+                            <h3 class="text-white font-bold text-lg">Home Additions</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-500 text-sm leading-relaxed">Expand your living space with seamless room additions, second stories, and custom designs...</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Permit Specialists</span>
+                            <span class="text-xs bg-[#f8f5f0] text-[#1a2a3a] px-3 py-1 rounded-full border border-gray-200">Structural Design</span>
+                        </div>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="mt-4 px-6 py-2 rounded-full btn-primary text-white font-semibold text-sm transition w-full">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION (ALL NEW IMAGES) ===== -->
+    <section id="projects" class="py-20 px-4 bg-[#1a2a3a]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-[#c9a84c] text-sm font-semibold tracking-[0.2em] uppercase">Our Portfolio</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">Featured Projects</h2>
+                <p class="text-gray-400 mt-3 max-w-md mx-auto">See the quality and craftsmanship we bring to every project</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 - Living Room -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop&crop=center" alt="Modern Living Room" class="project-image w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Living Room
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Open Concept Living</h3>
+                        <p class="text-gray-500 text-sm mt-1">Floor-to-ceiling windows, custom fireplace, and hardwood floors.</p>
+                    </div>
+                </div>
+                <!-- Project 2 - Exterior -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop&crop=center" alt="Modern Exterior" class="project-image w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Exterior
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Coastal Modern Facade</h3>
+                        <p class="text-gray-500 text-sm mt-1">Board and batten siding, metal roof, and landscaped entry.</p>
+                    </div>
+                </div>
+                <!-- Project 3 - Office -->
+                <div class="project-card rounded-2xl overflow-hidden shadow-sm">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop&crop=center" alt="Home Office" class="project-image w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Office
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Executive Home Office</h3>
+                        <p class="text-gray-500 text-sm mt-1">Custom built-ins, acoustic panels, and integrated lighting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="py-16 px-4 bg-gradient-to-r from-[#1a2a3a] to-[#2c3e50]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number text-4xl font-bold text-[#c9a84c]">500+</div>
+                    <p class="text-gray-300 text-sm mt-1">Projects Completed</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-[#c9a84c]">4.9</div>
+                    <p class="text-gray-300 text-sm mt-1">Average Rating</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-[#c9a84c]">200+</div>
+                    <p class="text-gray-300 text-sm mt-1">Happy Clients</p>
+                </div>
+                <div>
+                    <div class="stat-number text-4xl font-bold text-[#c9a84c]">20+</div>
+                    <p class="text-gray-300 text-sm mt-1">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="py-20 px-4 bg-[#f8f5f0]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-[#1a2a3a] text-sm font-semibold tracking-[0.2em] uppercase">Testimonials</span>
+                <h2 class="section-title text-5xl font-bold text-[#1a2a3a] mt-2">What Our Clients Say</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">"Ace Construction completely reimagined our kitchen. The craftsmanship is outstanding."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a2a3a] to-[#2c3e50] flex items-center justify-center text-[#c9a84c] font-bold text-lg flex-shrink-0">
+                            JD
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#1a2a3a]">James D.</p>
+                            <p class="text-gray-400 text-xs">Sarasota, FL • Kitchen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">"Professional, transparent, and the results are stunning. Highly recommend."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a2a3a] to-[#2c3e50] flex items-center justify-center text-[#c9a84c] font-bold text-lg flex-shrink-0">
+                            MR
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#1a2a3a]">Maria R.</p>
+                            <p class="text-gray-400 text-xs">Bradenton, FL • Bathroom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-sm">
+                    <div class="flex text-yellow-400 text-sm mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">"Our deck is now the heart of our home. Impeccable work and communication."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#1a2a3a] to-[#2c3e50] flex items-center justify-center text-[#c9a84c] font-bold text-lg flex-shrink-0">
+                            TK
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#1a2a3a]">Tom K.</p>
+                            <p class="text-gray-400 text-xs">Lakewood Ranch, FL • Deck</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / QUOTE SECTION ===== -->
+    <section id="contact" class="py-20 px-4 bg-[#0f1a24]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="text-[#c9a84c] text-sm font-semibold tracking-[0.2em] uppercase">Get Started</span>
+                <h2 class="section-title text-5xl font-bold text-white mt-2">Request a Free Quote</h2>
+                <p class="text-gray-400 mt-3">Tell us about your project and we'll get back to you within 24 hours</p>
+            </div>
+            <div class="glass-card rounded-2xl p-8 border border-[#c9a84c]/10">
+                <form method="POST" action="/contact" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-gray-300 text-sm block mb-1">Full Name</label>
+                            <input type="text" name="name" placeholder="John Doe" class="contact-input" required>
+                        </div>
+                        <div>
+                            <label class="text-gray-300 text-sm block mb-1">Email Address</label>
+                            <input type="email" name="email" placeholder="john@example.com" class="contact-input" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-gray-300 text-sm block mb-1">Phone Number</label>
+                        <input type="tel" name="phone" placeholder="(727) 409-7244" class="contact-input">
+                    </div>
+                    <div>
+                        <label class="text-gray-300 text-sm block mb-1">Project Description</label>
+                        <textarea name="message" placeholder="Tell us about your project..." class="contact-input"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl btn-gold text-white font-bold text-lg transition">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PREMIUM FOOTER ===== -->
+    <footer class="bg-[#0a1219] text-white/60 pt-16 pb-8 px-4 border-t border-[#1a2a3a]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a2a3a] to-[#2c3e50] flex items-center justify-center text-[#c9a84c] font-bold text-xl shadow-lg flex-shrink-0 border border-[#c9a84c]/20">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-white">Ace<span class="text-[#c9a84c]">Construction</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-400 max-w-xs">Quality construction and remodeling services for residential and commercial properties.</p>
+                    <div class="flex gap-3 mt-6">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Our Services</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Kitchen Remodeling</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Bathroom Remodeling</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Home Additions</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Flooring Installation</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Painting Services</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Deck & Patio</a></li>
+                    </ul>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Our Projects</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Testimonials</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Contact Us</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right text-[#c9a84c] text-[8px] mr-2"></i> Blog</a></li>
+                    </ul>
+                </div>
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-4">Get In Touch</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-map-marker-alt text-[#c9a84c] mt-1"></i>
+                            <span>5720 4th St N, St. Petersburg, FL 33703</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-phone text-[#c9a84c] mt-1"></i>
+                            <span>+1 (727) 409-7244</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="fas fa-envelope text-[#c9a84c] mt-1"></i>
+                            <span>info@aceconstruction.com</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400">
+                            <i class="far fa-clock text-[#c9a84c] mt-1"></i>
+                            <span>Mon-Fri: 7:00am - 6:00pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bottom Bar -->
+            <div class="border-t border-[#1a2a3a] mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-6 text-xs text-gray-500">
+                    <a href="#" class="hover:text-[#c9a84c] transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-[#c9a84c] transition">Terms of Service</a>
+                    <a href="#" class="hover:text-[#c9a84c] transition">Cookie Policy</a>
+                </div>
+                <p class="text-xs text-gray-500">© 2026 AceConstruction LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 26, 36, 0.95)';
+                navbar.style.borderBottom = '1px solid rgba(201, 168, 76, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.05)';
+                navbar.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
