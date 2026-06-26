@@ -10,7 +10,6 @@
     <style>
         * { font-family: 'Inter', sans-serif; }
         
-        /* ===== SLATE & GOLD COLOR SCHEME (Ace twist) ===== */
         :root {
             --slate: #1a2a3a;
             --slate-light: #2c3e50;
@@ -193,7 +192,6 @@
             background-clip: text;
         }
         
-        /* Premium footer */
         .footer-link {
             color: rgba(255,255,255,0.4);
             transition: all 0.3s ease;
@@ -224,7 +222,6 @@
             box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
         }
         
-        /* Service card with image overlay */
         .service-card-image {
             position: relative;
             overflow: hidden;
@@ -327,7 +324,7 @@
         </div>
     </section>
 
-    <!-- ===== SERVICES SECTION - REDESIGNED CARDS ===== -->
+    <!-- ===== SERVICES SECTION ===== -->
     <section id="services" class="py-20 px-4 bg-[#f8f5f0]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
@@ -339,7 +336,7 @@
                 <!-- Service 1 -->
                 <div class="service-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop" alt="Kitchen Remodeling">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop&crop=center" alt="Kitchen Remodeling">
                         <div class="service-card-overlay">
                             <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
                                 <i class="fas fa-kitchen-set"></i>
@@ -361,7 +358,7 @@
                 <!-- Service 2 -->
                 <div class="service-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop" alt="Bathroom Remodeling">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&crop=center" alt="Bathroom Remodeling">
                         <div class="service-card-overlay">
                             <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
                                 <i class="fas fa-bath"></i>
@@ -383,7 +380,7 @@
                 <!-- Service 3 -->
                 <div class="service-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="service-card-image">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Home Additions">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop&crop=center" alt="Home Additions">
                         <div class="service-card-overlay">
                             <div class="service-icon w-12 h-12 rounded-xl bg-[#c9a84c]/20 backdrop-blur-sm flex items-center justify-center text-[#c9a84c] text-xl mb-2">
                                 <i class="fas fa-house-chimney"></i>
@@ -406,7 +403,7 @@
         </div>
     </section>
 
-    <!-- ===== PROJECTS SECTION ===== -->
+    <!-- ===== PROJECTS SECTION (ALL NEW IMAGES) ===== -->
     <section id="projects" class="py-20 px-4 bg-[#1a2a3a]">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-14">
@@ -415,43 +412,46 @@
                 <p class="text-gray-400 mt-3 max-w-md mx-auto">See the quality and craftsmanship we bring to every project</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 - Living Room -->
                 <div class="project-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop" alt="Modern Kitchen" class="project-image w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=400&fit=crop&crop=center" alt="Modern Living Room" class="project-image w-full h-full object-cover">
                         <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Kitchen
+                            Living Room
                         </div>
                         <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-6 bg-white">
-                        <h3 class="text-[#1a2a3a] font-bold text-lg">Modern Coastal Kitchen</h3>
-                        <p class="text-gray-500 text-sm mt-1">Custom cabinetry, quartz island, and premium appliances.</p>
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Open Concept Living</h3>
+                        <p class="text-gray-500 text-sm mt-1">Floor-to-ceiling windows, custom fireplace, and hardwood floors.</p>
                     </div>
                 </div>
+                <!-- Project 2 - Exterior -->
                 <div class="project-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop" alt="Luxury Bathroom" class="project-image w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop&crop=center" alt="Modern Exterior" class="project-image w-full h-full object-cover">
                         <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Bathroom
+                            Exterior
                         </div>
                         <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-6 bg-white">
-                        <h3 class="text-[#1a2a3a] font-bold text-lg">Spa-Inspired Master Bath</h3>
-                        <p class="text-gray-500 text-sm mt-1">Rain shower, freestanding tub, and heated floors.</p>
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Coastal Modern Facade</h3>
+                        <p class="text-gray-500 text-sm mt-1">Board and batten siding, metal roof, and landscaped entry.</p>
                     </div>
                 </div>
+                <!-- Project 3 - Office -->
                 <div class="project-card rounded-2xl overflow-hidden shadow-sm">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Deck" class="project-image w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop&crop=center" alt="Home Office" class="project-image w-full h-full object-cover">
                         <div class="absolute top-3 right-3 bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Outdoor
+                            Office
                         </div>
                         <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-6 bg-white">
-                        <h3 class="text-[#1a2a3a] font-bold text-lg">Luxury Deck & Patio</h3>
-                        <p class="text-gray-500 text-sm mt-1">Composite decking, outdoor kitchen, and fire pit.</p>
+                        <h3 class="text-[#1a2a3a] font-bold text-lg">Executive Home Office</h3>
+                        <p class="text-gray-500 text-sm mt-1">Custom built-ins, acoustic panels, and integrated lighting.</p>
                     </div>
                 </div>
             </div>
